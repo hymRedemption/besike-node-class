@@ -1,0 +1,16 @@
+{
+  "name": "Class",
+  "version": "1.0.0",
+  "description": "Implement coffeescript's class system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hym",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "coffee-script": "^1.8.0",
+    "mocha": "^2.1.0"
+  }
+}
