@@ -3,7 +3,6 @@ module.exports = Class;
 
 function Class(classMember) {
 	var construct = null;
-	var varType;
 	// get the constructor
 	for ( var property in classMember ){
 		if ( property === "initialize" ){
