@@ -1,7 +1,7 @@
 module.exports = Class;
 
 
-function Class(classMember) {
+function Class(classMember, baseClass) {
 	var construct = null;
 	// get the constructor
 	if (classMember['initialize']){
@@ -16,6 +16,17 @@ function Class(classMember) {
 		if ( method !== "initialize" ){
 			construct.prototype[method] = classMember[method];
 		}
+	}
+	if (baseClass){
+		function F(){
+			this.constructor = construct;
+		};
+		F.prototype = baseClass.prototype;
+		var temp = new F();
+		for( var proMethod in construct.prototype){
+			temp[proMethod] = construct.prototype[proMethod];
+		}
+		construct.prototype = temp;
 	}
 	return construct;
 };
