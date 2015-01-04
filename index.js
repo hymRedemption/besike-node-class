@@ -4,12 +4,11 @@ module.exports = Class;
 function Class(classMember) {
 	var construct = null;
 	// get the constructor
-	for ( var property in classMember ){
-		if ( property === "initialize" ){
-			construct = classMember[property];
-		}
+	if (classMember['initialize']){
+		construct = classMember['initialize'];
+		delete classMember['initialize']
 	}
-	if ( construct == null){//no constructor 
+	else{
 		construct = function(){};
 	}
 	// add instance methods
