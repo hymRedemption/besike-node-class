@@ -27,6 +27,10 @@ function Class(classMember, baseClass) {
 			temp[proMethod] = construct.prototype[proMethod];
 		}
 		construct.prototype = temp;
+		construct["__super__"] = baseClass;
+	}
+	else{
+		construct["__super__"] = Object;
 	}
 	return construct;
 };
